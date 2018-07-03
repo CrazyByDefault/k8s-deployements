@@ -1,0 +1,16 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: create the 'sx' user
+      user: name=sx append=yes state=present createhome=yes shell=/bin/bash
+
+    - name: allow 'sx' to have passwordless sudo
+      lineinfile:
+        dest: /etc/sudoers
+        line: 'sx ALL=(ALL) NOPASSWD: ALL'
+        validate: 'visudo -cf %s'
+
+    - name: set up authorized keys for the sx user
+      authorized_key: user=sx key="{{item}}"
+      with_file:
+        - ~/.ssh/id_rsa.pub
