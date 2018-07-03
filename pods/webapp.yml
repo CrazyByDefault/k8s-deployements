@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapp
+spec:
+  containers:
+    - image: registry.gitlab.com/storyxpress/webapp
+      tags: latest
+      name: webapp
