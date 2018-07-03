@@ -5,5 +5,4 @@ metadata:
 spec:
   containers:
     - image: registry.gitlab.com/storyxpress/webapp
-      tags: latest
       name: webapp
