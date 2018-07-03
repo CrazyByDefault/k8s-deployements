@@ -6,3 +6,5 @@ spec:
   containers:
     - image: registry.gitlab.com/storyxpress/api
       name: api
+  imagePullSecrets:
+    - name: gitlab-registry
