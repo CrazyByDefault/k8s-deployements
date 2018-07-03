@@ -2,9 +2,11 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: api
+  label:
+    app: api
 spec:
   containers:
-    - image: registry.gitlab.com/storyxpress/api
+    - image: registry.gitlab.com/storyxpress/api:1.2.1
       name: api
   imagePullSecrets:
     - name: gitlab-registry
